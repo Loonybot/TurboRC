@@ -8,8 +8,8 @@ opMode stops or after 120 seconds.
 
 ## Installation
 
-Once this repository is public and a release tag is available, add JitPack to
-the `repositories` block in your FTC project's root `build.dependencies.gradle`:
+Add JitPack to the `repositories` block in your FTC project's root 
+`build.dependencies.gradle`:
 
 ```groovy
 maven { url = 'https://jitpack.io' }
@@ -39,3 +39,7 @@ The default is one worker; use `new TurboRC(this, 2)` or
 `new TurboRC(this, 3)` to use more. More workers may increase heat and compete
 with robot code. Call `turbo.stop()` to stop them early, even before Start;
 its return value can be ignored. TurboRC only supports `LinearOpMode`.
+
+## Verification
+
+Use Sidekick RC to measure the CPU frequency during your op mode runs.
