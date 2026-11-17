@@ -1,10 +1,11 @@
 # TurboRC
 
-TurboRC is an Android library for FTC Robot Controllers. It runs one or more
-low-priority background workers to encourage the CPU scheduler to raise the
-clock speed. This is a hint, not a guaranteed performance increase; it can
-increase power use and heat. Workers wait until Start, then stop when the
-opMode stops or after 120 seconds.
+TurboRC is a library for FTC Robot Controllers. It runs one or more
+low-priority background worker threads to encourage the CPU scheduler to raise the
+clock speed. This is a hint, not a guaranteed performance increase. It can
+increase power use and heat; use Sidekick RC to measure the impact. The turbo
+boost won't engage until START is pressed, and will disengage when the op mode
+is stopped or after 120 seconds.
 
 ## Installation
 
@@ -35,9 +36,9 @@ import com.loonybot.turborc.TurboRC;
 TurboRC turbo = new TurboRC(this);
 ```
 
-The default is one worker; use `new TurboRC(this, 2)` or
+The default is one worker thread; use `new TurboRC(this, 2)` or
 `new TurboRC(this, 3)` to use more. More workers may increase heat and compete
-with robot code. Call `turbo.stop()` to stop them early, even before Start;
+with robot code. Call `turbo.stop()` to stop them early, even before START;
 its return value can be ignored. TurboRC only supports `LinearOpMode`.
 
 ## Verification
